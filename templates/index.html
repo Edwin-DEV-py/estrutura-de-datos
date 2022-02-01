@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listado de proveedores</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Proveedor</th>
+                <th>Ciudad</th>
+                <th>#Articulos</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in p %}
+            <tr>
+                <td>{{proveedor.proveedor}}</td>
+                <td>{{ proveedor.ciudad }}</td>
+                <td>{{ proveedor.n_articulos }}</td>
+                <td><a href="{% url 'editar_proveedor' proveedor.id %}">Editar</a> <a href="{% url 'eliminar_proveedor' proveedor.id %}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2><a href="crear_pro.html">Añadir proveedor</a></h2>
+    <h2><a href="crear_art.html">Añadir articulo</a></h2>
+</body>
+</html>
